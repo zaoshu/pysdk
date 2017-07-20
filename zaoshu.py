@@ -253,11 +253,10 @@ class User(object):
 if __name__=='__main__':
 
     zaoshu_url = 'https://openapi.zaoshu.io/v2'
-    #api_key = '775673cc0b90406cb60d4bd3c87ac017'
-    api_key = 'ca3a56bdb5594c2b9e6d3f87f3d35baf'
 
-    #api_secret = '6b89554d1abd52b16e695ae773bc01ee69e68f720b4136aed05f4ad28db02910'
-    api_secret = '80518755f8d5d91f730a9332e2941023e41e29a856e6285bf51901af2f50f2b0'
+    api_key = '你的api_key'
+
+    api_secret = '你的api_secret'
 
     sdk = zaoshuSdk(api_key, api_secret, base_url=zaoshu_url)
 
