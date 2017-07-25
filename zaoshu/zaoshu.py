@@ -9,7 +9,7 @@ import hashlib
 import base64
 import os
 import json
-from time import gmtime, strftime, sleep
+from time import gmtime, strftime
 
 import requests
 
