@@ -13,10 +13,10 @@ from zaoshu import ZaoshuRequests
 from zaoshu import ZaoshuSdk
 from io import BytesIO
 
-API_KEY = 'ca3a56bdb5594c2b9e6d3f87f3d35baf'
-API_SECRET = '80518755f8d5d91f730a9332e2941023e41e29a856e6285bf51901af2f50f2b0'
-INSTANCE_ID = '7139aa25d85141829e4faf28ea551226'
-TASK_ID = '48607ed016fe4b1fb19069b2b5430d59'
+API_KEY = '你自己的api_key'
+API_SECRET = '你自己的api_secret'
+INSTANCE_ID = '你的实例id'
+TASK_ID = '你的实例id下的一个任务id'
 
 class TestZaoshuRequests(unittest.TestCase):
     """
