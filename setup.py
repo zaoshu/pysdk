@@ -8,9 +8,9 @@ setup(
     name="zaoshu",
     version="0.1.1",
     author="Kevin Cheng",
-    author_email="cheng1483x@gmail.com",
+    author_email="chengwei@zaoshu.io",
     description="zaoshu包实现里对造数openapi功能的封装，使开发人员专注于功能的实现，提高开发效率。 ",
-    long_description=open("README.rst").read(),
+    long_description=open("README.md").read(),
     license="MIT",
     url="https://github.com/zaoshu/pysdk",
     packages=['zaoshu'],
@@ -33,7 +33,6 @@ setup(
         "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3 :: Only",
 
     ],
 )

@@ -9,6 +9,7 @@ import hashlib
 import base64
 import os
 import json
+from io import BytesIO
 from time import gmtime, strftime
 
 import requests
@@ -82,7 +83,8 @@ class ZaoshuRequests(object):
 
         return headers
 
-    def sign(self, secret, methods, headers=None, parame=None):
+    @classmethod
+    def sign(cls, secret, methods, headers=None, parame=None):
         """
         生成签名
         :param secret: API Secret
@@ -207,16 +209,14 @@ class Instance(object):
         url = self.task_url.replace(':instance_id', instance_id).replace(':task_id', task_id)
         return self._request.get(url)
 
-    def download_run_data(self, instance_id, task_id, file_type='csv', dir_path=None,
-                          file_name=None):
+    def download_run_data(self, instance_id, task_id, file_type='csv', save_file=False):
         """
         下载运行结果
         :param instance_id: 实例ID
         :param task_id: 任务ID
         :param file_type: 文件类型
-        :param dir_path: 保存路径
-        :param file_name: 文件名字
-        :return: 保存文件的路径
+        :param save_file:
+        :return:保存文件的路径/StringIO对象
         """
         params = {"contentType":file_type}
         url = self.download_url.replace(':instance_id', instance_id).replace(':task_id', task_id)
@@ -224,48 +224,32 @@ class Instance(object):
         # 发生请求，获取下载文件
         response = self._request.get(url, params=params)
 
-        # 当前执行路径
-        # run_path = os.path.abspath(os.getcwd()).strip()
-        default_dir_path = 'datafile'
 
-        # 获取文件名 和 后缀
-        default_file_name = response.headers['content-disposition']
-        default_file_name = '/'+str(default_file_name.replace("attachment; filename*=UTF-8''", ''))
-        suffix = '.'+default_file_name.split('.')[-1]
-        default_file_name = default_file_name.replace(suffix, '')
+        #判断是否保存文件
+        if save_file:
 
-        # 配置保存路径
-        if dir_path:
-            # 去除字符串后面的/
-            if dir_path[-1] == '/':
-                dir_path = dir_path[:-1]
+            default_dir_path = 'datafile'
+            # 获取文件名 和 后缀
+            default_file_name = response.headers['content-disposition']
+            default_file_name = '/'+str(default_file_name.replace("attachment; filename*=UTF-8''",
+                                                                  ''))
+            suffix = '.'+default_file_name.split('.')[-1]
+            default_file_name = default_file_name.replace(suffix, '')
 
-            # 判断是路径还是文件夹
-            if not dir_path[0] == '/':
-                default_dir_path = default_dir_path+'/'+dir_path
-            else:
-                default_dir_path = dir_path
+            # 判断路径状态
+            if not os.path.isdir(default_dir_path):
+                os.makedirs(default_dir_path)
 
-        # 判断路径状态
-        if not os.path.isdir(default_dir_path):
-            os.makedirs(default_dir_path)
+            # 保存文件
+            save_file_path = default_dir_path+default_file_name+suffix
 
-        # 对保存文件名进行操作
-        if file_name:
-            # 去除字符串后面的/
-            if not file_name[0] == '/':
-                file_name = '/' + file_name
-            # 判断文件是否存在
-            if not os.path.isfile(default_dir_path+file_name+suffix):
-                default_file_name = file_name
+            with open(save_file_path, 'wb') as file:
+                file.write(response.content)
+            return os.path.abspath(save_file_path)
 
-        # 保存文件
-        save_file_path = default_dir_path+default_file_name+suffix
+        else:
+            return BytesIO(response.content)
 
-        with open(save_file_path, 'wb') as file:
-            file.write(response.content)
-
-        return os.path.abspath(save_file_path)
 
     def run(self, instance_id, body=None):
         """

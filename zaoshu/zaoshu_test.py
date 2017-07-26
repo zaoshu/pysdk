@@ -7,12 +7,16 @@
 import unittest
 
 import requests
+from zaoshu import Instance
+from zaoshu import User
+from zaoshu import ZaoshuRequests
+from zaoshu import ZaoshuSdk
+from io import BytesIO
 
-from zaoshu.zaoshu import Instance
-from zaoshu.zaoshu import User
-from zaoshu.zaoshu import ZaoshuRequests
-from zaoshu.zaoshu import ZaoshuSdk
-
+API_KEY = 'ca3a56bdb5594c2b9e6d3f87f3d35baf'
+API_SECRET = '80518755f8d5d91f730a9332e2941023e41e29a856e6285bf51901af2f50f2b0'
+INSTANCE_ID = '7139aa25d85141829e4faf28ea551226'
+TASK_ID = '48607ed016fe4b1fb19069b2b5430d59'
 
 class TestZaoshuRequests(unittest.TestCase):
     """
@@ -20,8 +24,8 @@ class TestZaoshuRequests(unittest.TestCase):
     """
     def setUp(self):
         """初始化工作"""
-        self.api_key = 'ca3a56bdb5594c2b9e6d3f87f3d35baf'
-        self.api_secret = '80518755f8d5d91f730a9332e2941023e41e29a856e6285bf51901af2f50f2b0'
+        self.api_key = API_KEY
+        self.api_secret = API_SECRET
         self.request = ZaoshuRequests(self.api_key, self.api_secret)
 
     def test_sign(self):
@@ -57,7 +61,7 @@ class TestZaoshuRequests(unittest.TestCase):
 
         headers = self.request.get_headers(method=methods, query=query, body=body)
         self.assertNotEqual(headers['Authorization'], '')
-        self.assertEqual(headers['Content-Type'],'application/json; charset=utf-8')
+        self.assertEqual(headers['Content-Type'], 'application/json; charset=utf-8')
 
     def test_get(self):
         """测试get请求"""
@@ -74,8 +78,8 @@ class TestZaoshuSdk(unittest.TestCase):
 
     def setUp(self):
         """初始化工作"""
-        self.api_key = 'ca3a56bdb5594c2b9e6d3f87f3d35baf'
-        self.api_secret = '80518755f8d5d91f730a9332e2941023e41e29a856e6285bf51901af2f50f2b0'
+        self.api_key = API_KEY
+        self.api_secret = API_SECRET
         self.sdk = ZaoshuSdk(self.api_key, self.api_secret)
 
     def test(self):
@@ -93,13 +97,13 @@ class TestInstance(unittest.TestCase):
 
     def setUp(self):
         """初始化工作"""
-        self.api_key = 'ca3a56bdb5594c2b9e6d3f87f3d35baf'
-        self.api_secret = '80518755f8d5d91f730a9332e2941023e41e29a856e6285bf51901af2f50f2b0'
+        self.api_key = API_KEY
+        self.api_secret = API_SECRET
         self.request = ZaoshuRequests(self.api_key, self.api_secret)
         self.base_url = 'https://openapi.zaoshu.io/v2'
         self.instance = Instance(self.base_url, self.request)
-        self.instance_id = '7139aa25d85141829e4faf28ea551226'
-        self.task_id = '48607ed016fe4b1fb19069b2b5430d59'
+        self.instance_id = INSTANCE_ID
+        self.task_id = TASK_ID
 
     def test_1_list(self):
         """测试获取用户的爬虫实例列表"""
@@ -120,7 +124,8 @@ class TestInstance(unittest.TestCase):
 
     def test_4_edit(self):
         """测试编辑实例"""
-        instance_edit_response = self.instance.edit(self.instance_id, title='测试修改实例数据标题')
+        instance_edit_response = self.instance.edit(self.instance_id,
+                                                    title='测试修改实例数据标题')
         self.assertEqual(instance_edit_response.status_code, 200)
 
     def test_5_run(self):
@@ -142,17 +147,24 @@ class TestInstance(unittest.TestCase):
     def test_8_download_run_data(self):
         """测试下载运行结果数据"""
         instance_download_path = self.instance.download_run_data(self.instance_id,
-                                                                self.task_id,
-                                                                file_type='json')
+                                                                 self.task_id,
+                                                                 file_type='json',
+                                                                 save_file=True)
+        instance_download_count = self.instance.download_run_data(self.instance_id,
+                                                                 self.task_id,
+                                                                 file_type='json')
+
         self.assertNotEqual(instance_download_path, "")
+        self.assertTrue(isinstance(instance_download_count, BytesIO))
 
 
 class TestUser(unittest.TestCase):
-    
+    """测试用户类"""
+
     def setUp(self):
         """初始化工作"""
-        self.api_key = 'ca3a56bdb5594c2b9e6d3f87f3d35baf'
-        self.api_secret = '80518755f8d5d91f730a9332e2941023e41e29a856e6285bf51901af2f50f2b0'
+        self.api_key = API_KEY
+        self.api_secret = API_SECRET
         self.request = ZaoshuRequests(self.api_key, self.api_secret)
         self.base_url = 'https://openapi.zaoshu.io/v2'
         self.user = User(self.base_url, self.request)
@@ -160,9 +172,9 @@ class TestUser(unittest.TestCase):
     def test_account(self):
         """测试账户信息"""
         user_account_response = self.user.account()
-        self.assertEqual( user_account_response.status_code, 200)
+        self.assertEqual(user_account_response.status_code, 200)
 
     def test_wallet(self):
         """测试钱包信息"""
         user_wallet_response = self.user.wallet()
-        self.assertEqual( user_wallet_response.status_code, 200)
+        self.assertEqual(user_wallet_response.status_code, 200)
