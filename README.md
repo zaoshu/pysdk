@@ -118,7 +118,7 @@ def print_resopnse_info(response, title=''):
     user_wallet_response = sdk.user.wallet()
     print_resopnse_info(user_wallet_response, '获取用户钱包信息')
 ```
-## 3. 用户实例, sdk
+## 3. 用户实例, sdk.instance
 ```
     # 获取用户的爬虫实例
     instance_list_response = sdk.instance.list()
