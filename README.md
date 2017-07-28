@@ -4,7 +4,6 @@
 ## pip 安装造数模块
 ```
 pip install zaoshu
-
 ```
 ## pip 安装完成后引入ZaoshuSdk，即可使用
 ```
@@ -63,10 +62,14 @@ if __name__ == '__main__':
 
 ## ZaoshuRequests对象
    ZaoshuRequests对象是对Requests对象的请求头进行了请求头的封装。
-   可以使用
+   可以使用Requests的方法和属性
+   
    Requests.url : 请求网址
+   
    Requests.status_code  ： 请求响应代码
+   
    Requests.text ： 请求响应内容
+   
   
 ## 公共函数，输出请求信息，参数为response对象
 
