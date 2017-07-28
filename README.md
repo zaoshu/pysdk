@@ -3,6 +3,39 @@
 ## dome.py文件
   在dome文件中包含使用sdk的例子，只需要将api_key 与 api_secret 修改为自己的 ，便可以运行所有功能。
 
+## pip 安装造数模块
+```
+pip install zaoshu
+
+```
+## pip 安装完成后引入ZaoshuSdk，即可使用
+```
+from zaoshu.zaoshu import ZaoshuSdk
+
+# 测试代码 部分
+if __name__ == '__main__':
+
+    ZAOSHU_URL = 'https://openapi.zaoshu.io/v2'
+
+    # api_key = '你的api_key'
+    API_KEY = '你的api_key'
+
+    # api_secret = '你的api_secret'
+    API_SERVER = '你的api_secret'
+
+    sdk = ZaoshuSdk(API_KEY, API_SERVER, base_url=ZAOSHU_URL)
+    # 造数Http类对象
+    sdk.request
+    # 造数实例类对象
+    sdk.instance
+    # 造数用户类对象
+    self.user
+	
+```
+# sdk功能 详见 使用教程DEMO
+
+
+
 ## zaoshu模块的构成
 
 * zaoshuRequests : 造数HTTP库
@@ -26,7 +59,7 @@
 
   造数实例类 是对造数用户 api 功能的一个封装，大家可以直接使用函数来使用造数提供的服务
 
-# 使用教程
+# 使用教程DEMO
 
 ## ZaoshuRequests对象是对Requests对象的请求头进行了请求头的封装
 ## 公共函数，输出请求信息，参数为response对象

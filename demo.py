@@ -92,9 +92,17 @@ if __name__ == '__main__':
 
             # 实例任务数据下载
             instance_download_path = sdk.instance.download_run_data(instance_id, task_id,
-                                                                    file_type='json')
+                                                                    file_type='json',
+                                                                    save_file=True)
             print('====[实例任务数据下载]========================================')
             print('下载路径：'+instance_download_path)
+
+            # 实例任务数据下载
+            instance_download_object = sdk.instance.download_run_data(instance_id, task_id,
+                                                                    file_type='json')
+            print('====[实例任务数据下载]========================================')
+            print('下载数据为：' )
+            print(instance_download_object)
 
     else:
         print("没有实例无法继续，请创建实例后继续")
