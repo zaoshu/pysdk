@@ -1,8 +1,6 @@
-# pysdk
-
-## dome.py文件
-  在dome文件中包含使用sdk的例子，只需要将api_key 与 api_secret 修改为自己的 ，便可以运行所有功能。
-
+# pysdk 造数Python版本SDK
+## 简介
+ zaoshu 是对造数openAPI接口的一层封装实现，使用户更专注于功能，而不必关注底层实现，这些SDK帮你完成。
 ## pip 安装造数模块
 ```
 pip install zaoshu
@@ -32,7 +30,8 @@ if __name__ == '__main__':
     self.user
 	
 ```
-# sdk功能 详见 使用教程DEMO
+## sdk功能
+ 详见 最下面的 使用教程DEMO
 
 
 
@@ -59,9 +58,16 @@ if __name__ == '__main__':
 
   造数实例类 是对造数用户 api 功能的一个封装，大家可以直接使用函数来使用造数提供的服务
 
-# 使用教程DEMO
 
-## ZaoshuRequests对象是对Requests对象的请求头进行了请求头的封装
+# 使用教程DEMO详解
+
+## ZaoshuRequests对象
+   ZaoshuRequests对象是对Requests对象的请求头进行了请求头的封装。
+   可以使用
+   Requests.url : 请求网址
+   Requests.status_code  ： 请求响应代码
+   Requests.text ： 请求响应内容
+  
 ## 公共函数，输出请求信息，参数为response对象
 
 ```
