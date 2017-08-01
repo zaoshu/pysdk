@@ -64,6 +64,7 @@ if __name__ == '__main__':
   造数HTTP库基于Requests库的基础上，添加了符合造数签名规则的函数，目前支持 GET、POST、PATCH 请求自动添加签名
   
    - **发送 带造数签名的 GET请求**
+   
    ```
 	zaoshuRequests.get(self, url, params=None):
 	"""
@@ -75,6 +76,7 @@ if __name__ == '__main__':
   ```
   
    - **发送 带造数签名的 POST请求**
+   
   ```
   	zaoshuRequests.post(self, url, params=None, body=None):
         """
@@ -87,6 +89,7 @@ if __name__ == '__main__':
   ```
   
    - **发送 带造数签名的 PATCH请求**
+   
   ```
 	zaoshuRequests.patch(self, url, params=None, body=None):
 	"""
@@ -98,6 +101,7 @@ if __name__ == '__main__':
 	"""
   ```
   - **requests.Response**
+  
   requests.Response 的详细文档见 http://docs.python-requests.org/zh_CN/latest/user/quickstart.html
   
   
@@ -106,6 +110,7 @@ if __name__ == '__main__':
 
   造数SDK 将 造数HTTP库，造数实例类，造数用户类 聚合在一起，通过 统一的对象进行使用
   - **zaoshuSdk的属性代码**
+  
   ```
         self.request = ZaoshuRequests(api_key, api_secret)
         self.instance = Instance(self._base_url, self.request)
@@ -117,6 +122,7 @@ if __name__ == '__main__':
 
   造数实例类 是对造数实例 api 功能的一个封装，大家可以直接使用函数来使用造数提供的服务
   - **获取用户的爬虫实例列表**
+  
   ```
   	Instance.list(self):
 	"""
@@ -126,6 +132,7 @@ if __name__ == '__main__':
   ```
   
   - **获取实例详情**
+  
   ```
 	Instance.item(self, instance_id):
 	"""
@@ -136,6 +143,7 @@ if __name__ == '__main__':
   ```
   
   - **获取实例的数据格式**
+  
   ```
       	Instance.schema(self, instance_id):
         """
@@ -146,6 +154,7 @@ if __name__ == '__main__':
   ```
   
   - **获取某实例下的任务列表**
+  
   ```
       	Instance.task(self, instance_id, task_id):
         """
@@ -156,6 +165,7 @@ if __name__ == '__main__':
         """
   ```
   - **下载运行结果数据**
+  
   ```
        Instance.download_run_data(self, instance_id, task_id, file_type='csv', save_file=False):
         """
@@ -169,6 +179,7 @@ if __name__ == '__main__':
    ```
    
    - **运行实例**
+   
    ```
    	Instance.run(self, instance_id, body=None):
         """
@@ -179,6 +190,7 @@ if __name__ == '__main__':
    ```
    
    - **编辑实例**
+   
    ```
    	Instance.edit(self, instance_id, title=None, result_notify_uri=None):
         """
@@ -195,6 +207,7 @@ if __name__ == '__main__':
   造数实例类 是对造数用户 api 功能的一个封装，大家可以直接使用函数来使用造数提供的服务
   
   - **获得用户帐号信息**
+  
   ```
       	User.account(self):
         """
@@ -204,6 +217,7 @@ if __name__ == '__main__':
   ```
   
   - **获取用户钱包信息**
+  
  ```
       	User.wallet(self):
         """
