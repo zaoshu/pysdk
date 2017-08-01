@@ -65,41 +65,41 @@ if __name__ == '__main__':
   
    - **发送 带造数签名的 GET请求**
    
-   ```
-	zaoshuRequests.get(self, url, params=None):
-	"""
-	get请求
-	:param url: 请求url
-	:param params: 请求参数
-	:return:requests.request
-	"""
-  ```
+```
+zaoshuRequests.get(self, url, params=None):
+"""
+get请求
+:param url: 请求url
+:param params: 请求参数
+:return:requests.request
+"""
+```
   
    - **发送 带造数签名的 POST请求**
    
-  ```
-  	zaoshuRequests.post(self, url, params=None, body=None):
-        """
-        post请求
-        :param url:请求url
-        :param params:请求参数
-        :param body:内容
-        :return:requests.request 对象
-        """
+```
+zaoshuRequests.post(self, url, params=None, body=None):
+"""
+post请求
+:param url:请求url
+:param params:请求参数
+:param body:内容
+:return:requests.request 对象
+"""
   ```
   
    - **发送 带造数签名的 PATCH请求**
    
-  ```
-	zaoshuRequests.patch(self, url, params=None, body=None):
-	"""
-	patch请求
-	:param url:请求url
-	:param params:请求参数
-	:param body:内容
-	:return:requests.request
-	"""
-  ```
+```
+zaoshuRequests.patch(self, url, params=None, body=None):
+"""
+patch请求
+:param url:请求url
+:param params:请求参数
+:param body:内容
+:return:requests.request
+"""
+```
   - **requests.Response**
   
   requests.Response 的详细文档见 http://docs.python-requests.org/zh_CN/latest/user/quickstart.html
@@ -110,11 +110,11 @@ if __name__ == '__main__':
 
   造数SDK 将 造数HTTP库，造数实例类，造数用户类 聚合在一起，通过 统一的对象进行使用
   - **zaoshuSdk的属性代码**
-  ```
-        self.request = ZaoshuRequests(api_key, api_secret)
-        self.instance = Instance(self._base_url, self.request)
-        self.user = User(self._base_url, self.request)
-  ```
+```
+self.request = ZaoshuRequests(api_key, api_secret)
+self.instance = Instance(self._base_url, self.request)
+self.user = User(self._base_url, self.request)
+```
  
 
 ###  Instance : 造数实例类
@@ -122,84 +122,84 @@ if __name__ == '__main__':
   造数实例类 是对造数实例 api 功能的一个封装，大家可以直接使用函数来使用造数提供的服务
   - **获取用户的爬虫实例列表**
   
-  ```
-  	Instance.list(self):
-	"""
-	获取实例列表
-	:return: requests.Response
-	"""
-  ```
+```
+Instance.list(self):
+"""
+获取实例列表
+:return: requests.Response
+"""
+```
   
   - **获取实例详情**
   
-  ```
-	Instance.item(self, instance_id):
-	"""
-	获取实例详情
-	:param instance_id: 运行实例的id编号，可以从实例列表中获取
-	:return: requests.Response
-	"""
-  ```
+```
+Instance.item(self, instance_id):
+"""
+获取实例详情
+:param instance_id: 运行实例的id编号，可以从实例列表中获取
+:return: requests.Response
+"""
+```
   
   - **获取实例的数据格式**
   
-  ```
-      	Instance.schema(self, instance_id):
-        """
-        获取单个实例的数据格式
-        :param instance_id:
-        :return: requests.Response
-	"""
-  ```
+```
+Instance.schema(self, instance_id):
+"""
+获取单个实例的数据格式
+:param instance_id:
+:return: requests.Response
+"""
+```
   
   - **获取某实例下的任务列表**
   
-  ```
-      	Instance.task(self, instance_id, task_id):
-        """
-        获取某实例下，单个任务详情
-        :param instance_id:
-        :param task_id:
-        :return: requests.Response
-        """
+```
+Instance.task(self, instance_id, task_id):
+"""
+获取某实例下，单个任务详情
+:param instance_id:
+:param task_id:
+:return: requests.Response
+"""
   ```
   - **下载运行结果数据**
   
-  ```
-       Instance.download_run_data(self, instance_id, task_id, file_type='csv', save_file=False):
-        """
-        下载运行结果
-        :param instance_id: 实例ID
-        :param task_id: 任务ID
-        :param file_type: 文件类型
-        :param save_file: 是否保持文件
-        :return:保存文件的路径/BytesIO对象
-        """
+```
+Instance.download_run_data(self, instance_id, task_id, file_type='csv', save_file=False):
+"""
+下载运行结果
+:param instance_id: 实例ID
+:param task_id: 任务ID
+:param file_type: 文件类型
+:param save_file: 是否保持文件
+:return:保存文件的路径/BytesIO对象
+"""
    ```
    
    - **运行实例**
    
-   ```
-   	Instance.run(self, instance_id, body=None):
-        """
-        运行实例
-        :param instance_id: 运行实例的id编号，可以从实例列表中获取
-        :return: requests.Response
-        """
-   ```
+```
+Instance.run(self, instance_id, body=None):
+"""
+运行实例
+:param instance_id: 运行实例的id编号，可以从实例列表中获取
+:return: requests.Response
+"""
+```
    
    - **编辑实例**
    
-   ```
-   	Instance.edit(self, instance_id, title=None, result_notify_uri=None):
-        """
-        实例编辑
-        :param instance_id: 实例id
-        :param title: 要修改的实例标题
-        :param result_notify_uri: 回调url
-        :return:requests.Response
-        """
-   ```
+```
+Instance.edit(self, instance_id, title=None, result_notify_uri=None):
+"""
+实例编辑
+:param instance_id: 实例id
+:param title: 要修改的实例标题
+:param result_notify_uri: 回调url
+:return:requests.Response
+"""
+```
 
 ###  User ：造数用户类
 
@@ -207,22 +207,22 @@ if __name__ == '__main__':
   
   - **获得用户帐号信息**
   
-  ```
-      	User.account(self):
-        """
-        获得用户帐号信息
-        :return:requests.Response
-        """
-  ```
+```
+User.account(self):
+"""
+获得用户帐号信息
+:return:requests.Response
+"""
+```
   
   - **获取用户钱包信息**
   
- ```
-      	User.wallet(self):
-        """
-        获得用户钱包信息
-        :return:requests.Response
-        """
+```
+User.wallet(self):
+"""
+获得用户钱包信息
+:return:requests.Response
+"""
  ```
 
 
