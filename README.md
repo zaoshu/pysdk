@@ -110,8 +110,7 @@ if __name__ == '__main__':
 
   造数SDK 将 造数HTTP库，造数实例类，造数用户类 聚合在一起，通过 统一的对象进行使用
   - **zaoshuSdk的属性代码**
-  
-  ```
+  ```
         self.request = ZaoshuRequests(api_key, api_secret)
         self.instance = Instance(self._base_url, self.request)
         self.user = User(self._base_url, self.request)
