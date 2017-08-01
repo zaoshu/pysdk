@@ -240,7 +240,7 @@ User.wallet(self):
    
   
 ## 公共函数，输出请求信息，参数为response对象
-
+ 
 ```
 def print_resopnse_info(response, title=''):
     """
