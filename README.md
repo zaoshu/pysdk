@@ -5,6 +5,7 @@
 ```
 pip install zaoshu
 ```
+
 ## pip 安装完成后引入ZaoshuSdk，即可使用
 ```
 from zaoshu.zaoshu import ZaoshuSdk
@@ -29,6 +30,7 @@ if __name__ == '__main__':
     sdk.user
 	
 ```
+
 ## sdk功能
 ### http类对象功能
  - 发送 带造数签名的 GET请求
@@ -61,9 +63,9 @@ if __name__ == '__main__':
 
   造数HTTP库基于Requests库的基础上，添加了符合造数签名规则的函数，目前支持 GET、POST、PATCH 请求自动添加签名
   
-   **发送 带造数签名的 GET请求**
-  ```
-      	zaoshuRequests.get(self, url, params=None):
+   - **发送 带造数签名的 GET请求**
+   ```
+	zaoshuRequests.get(self, url, params=None):
 	"""
 	get请求
 	:param url: 请求url
@@ -71,7 +73,8 @@ if __name__ == '__main__':
 	:return:requests.request
 	"""
   ```
-   **发送 带造数签名的 POST请求**
+  
+   - **发送 带造数签名的 POST请求**
   ```
   	zaoshuRequests.post(self, url, params=None, body=None):
         """
@@ -82,19 +85,19 @@ if __name__ == '__main__':
         :return:requests.request 对象
         """
   ```
-   **发送 带造数签名的 PATCH请求**
-  ```
-      	zaoshuRequests.patch(self, url, params=None, body=None):
-        """
-        patch请求
-        :param url:请求url
-        :param params:请求参数
-        :param body:内容
-        :return:requests.request
-        """
   
+   - **发送 带造数签名的 PATCH请求**
   ```
-  **requests.Response**
+	zaoshuRequests.patch(self, url, params=None, body=None):
+	"""
+	patch请求
+	:param url:请求url
+	:param params:请求参数
+	:param body:内容
+	:return:requests.request
+	"""
+  ```
+  - **requests.Response**
   requests.Response 的详细文档见 http://docs.python-requests.org/zh_CN/latest/user/quickstart.html
   
   
@@ -102,7 +105,7 @@ if __name__ == '__main__':
 ###  zaoshuSdk : 造数SDK
 
   造数SDK 将 造数HTTP库，造数实例类，造数用户类 聚合在一起，通过 统一的对象进行使用
-  **zaoshuSdk的属性代码**
+  - **zaoshuSdk的属性代码**
   ```
         self.request = ZaoshuRequests(api_key, api_secret)
         self.instance = Instance(self._base_url, self.request)
@@ -113,7 +116,7 @@ if __name__ == '__main__':
 ###  Instance : 造数实例类
 
   造数实例类 是对造数实例 api 功能的一个封装，大家可以直接使用函数来使用造数提供的服务
-  **获取用户的爬虫实例列表**
+  - **获取用户的爬虫实例列表**
   ```
   	Instance.list(self):
 	"""
@@ -121,16 +124,18 @@ if __name__ == '__main__':
 	:return: requests.Response
 	"""
   ```
-  **获取实例详情**
+  
+  - **获取实例详情**
   ```
-      	Instance.item(self, instance_id):
-        """
-        获取实例详情
-        :param instance_id: 运行实例的id编号，可以从实例列表中获取
-        :return: requests.Response
-        """
+	Instance.item(self, instance_id):
+	"""
+	获取实例详情
+	:param instance_id: 运行实例的id编号，可以从实例列表中获取
+	:return: requests.Response
+	"""
   ```
-  **获取实例的数据格式**
+  
+  - **获取实例的数据格式**
   ```
       	Instance.schema(self, instance_id):
         """
@@ -138,9 +143,9 @@ if __name__ == '__main__':
         :param instance_id:
         :return: requests.Response
 	"""
-
   ```
-  **获取某实例下的任务列表**
+  
+  - **获取某实例下的任务列表**
   ```
       	Instance.task(self, instance_id, task_id):
         """
@@ -150,8 +155,8 @@ if __name__ == '__main__':
         :return: requests.Response
         """
   ```
-   **下载运行结果数据**
-   ```
+  - **下载运行结果数据**
+  ```
        Instance.download_run_data(self, instance_id, task_id, file_type='csv', save_file=False):
         """
         下载运行结果
@@ -162,7 +167,8 @@ if __name__ == '__main__':
         :return:保存文件的路径/BytesIO对象
         """
    ```
-   **运行实例**
+   
+   - **运行实例**
    ```
    	Instance.run(self, instance_id, body=None):
         """
@@ -171,7 +177,8 @@ if __name__ == '__main__':
         :return: requests.Response
         """
    ```
-   **编辑实例**
+   
+   - **编辑实例**
    ```
    	Instance.edit(self, instance_id, title=None, result_notify_uri=None):
         """
@@ -181,14 +188,13 @@ if __name__ == '__main__':
         :param result_notify_uri: 回调url
         :return:requests.Response
         """
-
    ```
 
 ###  User ：造数用户类
 
   造数实例类 是对造数用户 api 功能的一个封装，大家可以直接使用函数来使用造数提供的服务
   
-  **获得用户帐号信息**
+  - **获得用户帐号信息**
   ```
       	User.account(self):
         """
@@ -197,7 +203,7 @@ if __name__ == '__main__':
         """
   ```
   
-  **获取用户钱包信息**
+  - **获取用户钱包信息**
  ```
       	User.wallet(self):
         """
