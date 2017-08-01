@@ -63,7 +63,7 @@ if __name__ == '__main__':
 
   造数HTTP库基于Requests库的基础上，添加了符合造数签名规则的函数，目前支持 GET、POST、PATCH 请求自动添加签名
   
-   - **发送 带造数签名的 GET请求**
+  - **发送 带造数签名的 GET请求**
    
 ```
 zaoshuRequests.get(self, url, params=None):
@@ -75,7 +75,7 @@ get请求
 """
 ```
   
-   - **发送 带造数签名的 POST请求**
+  - **发送 带造数签名的 POST请求**
    
 ```
 zaoshuRequests.post(self, url, params=None, body=None):
@@ -88,7 +88,7 @@ post请求
 """
   ```
   
-   - **发送 带造数签名的 PATCH请求**
+  - **发送 带造数签名的 PATCH请求**
    
 ```
 zaoshuRequests.patch(self, url, params=None, body=None):
@@ -100,7 +100,7 @@ patch请求
 :return:requests.request
 """
 ```
-  - **requests.Response**
+  - **requests.Response**
   
   requests.Response 的详细文档见 http://docs.python-requests.org/zh_CN/latest/user/quickstart.html
   
@@ -163,7 +163,7 @@ Instance.task(self, instance_id, task_id):
 :return: requests.Response
 """
   ```
-  - **下载运行结果数据**
+  - **下载运行结果数据**
   
 ```
 Instance.download_run_data(self, instance_id, task_id, file_type='csv', save_file=False):
@@ -177,7 +177,7 @@ Instance.download_run_data(self, instance_id, task_id, file_type='csv', save_fil
 """
    ```
    
-   - **运行实例**
+  - **运行实例**
    
 ```
 Instance.run(self, instance_id, body=None):
@@ -188,7 +188,7 @@ Instance.run(self, instance_id, body=None):
 """
 ```
    
-   - **编辑实例**
+  - **编辑实例**
    
 ```
 Instance.edit(self, instance_id, title=None, result_notify_uri=None):
@@ -205,7 +205,7 @@ Instance.edit(self, instance_id, title=None, result_notify_uri=None):
 
   造数实例类 是对造数用户 api 功能的一个封装，大家可以直接使用函数来使用造数提供的服务
   
-  - **获得用户帐号信息**
+  - **获得用户帐号信息**
   
 ```
 User.account(self):
@@ -215,7 +215,7 @@ User.account(self):
 """
 ```
   
-  - **获取用户钱包信息**
+  - **获取用户钱包信息**
   
 ```
 User.wallet(self):
