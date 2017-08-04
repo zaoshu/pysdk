@@ -106,7 +106,7 @@ class ZaoshuRequests(object):
             values.append(parame['body'])
         else:
             values.append("")
-
+            
         base_string = u"\n".join(values)
 
         digest = hmac.new(secret.encode("utf-8"), base_string.encode("utf-8"),
