@@ -48,9 +48,8 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            pwd
-            ls
-            python manage.py test
+            cd zaoshu
+            python zoashu_test.py test
 
       - store_artifacts:
           path: test-reports
