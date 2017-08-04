@@ -49,7 +49,7 @@ jobs:
           command: |
             . venv/bin/activate
             cd zaoshu
-            python zoashu_test.py test
+            python zaoshu_test.py test
 
       - store_artifacts:
           path: test-reports
