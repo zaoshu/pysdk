@@ -12,11 +12,13 @@ from zaoshu import User
 from zaoshu import ZaoshuRequests
 from zaoshu import ZaoshuSdk
 from io import BytesIO
+import os
 
-API_KEY = '你自己的api_key'
-API_SECRET = '你自己的api_secret'
-INSTANCE_ID = '你的实例id'
-TASK_ID = '你的实例id下的一个任务id'
+
+API_KEY = os.environ.get('API_KEY')
+API_SECRET = os.environ.get('API_SECRET')
+INSTANCE_ID = os.environ.get('INSTANCE_ID')
+TASK_ID = os.environ.get('TASK_ID')
 
 class TestZaoshuRequests(unittest.TestCase):
     """
