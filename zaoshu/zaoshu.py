@@ -1,5 +1,6 @@
 #!/usr/bin.env python3
 # coding=utf-8
+
 """
 zaoshu 模块集成 ZaoshuRequests, ZaoshuSdk, Instance, User 类。
 主要为造数api提供 接口服务
@@ -105,6 +106,7 @@ class ZaoshuRequests(object):
             values.append(parame['body'])
         else:
             values.append("")
+            
         base_string = u"\n".join(values)
 
         digest = hmac.new(secret.encode("utf-8"), base_string.encode("utf-8"),
