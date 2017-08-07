@@ -113,7 +113,7 @@ class TestInstance(unittest.TestCase):
         self.assertEqual(instance_list_response.status_code, 200)
         self.instance_id = instance_list_response.json()['data'][0]['id']
 
-    def                     test_2_item(self):
+    def test_2_item(self):
         """测试获取单个爬虫实例实例"""
         self.assertNotEqual(self.instance_id, '')
         instance_item_response = self.instance.item(self.instance_id)
