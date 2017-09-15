@@ -107,12 +107,7 @@ class TestInstance(unittest.TestCase):
 
     def test_1_list(self):
         """测试获取用户的爬虫实例列表"""
-        instance_list_response = self.instance.
-        ()
-
-
-
-
+        instance_list_response = self.instance.list()
 
         self.assertEqual(instance_list_response.status_code, 200)
         self.instance_id = instance_list_response.json()['data'][0]['id']
