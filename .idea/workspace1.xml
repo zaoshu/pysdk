@@ -2,21 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5c9275e-5713-4ac0-939f-2ab450e1a5f3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/pysdk.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Python.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.circleci/config.yml" afterPath="$PROJECT_DIR$/.circleci/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LICENSE" afterPath="$PROJECT_DIR$/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo.py" afterPath="$PROJECT_DIR$/demo.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zaoshu/__init__.py" afterPath="$PROJECT_DIR$/zaoshu/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zaoshu/zaoshu.py" afterPath="$PROJECT_DIR$/zaoshu/zaoshu.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zaoshu/zaoshu_test.py" afterPath="$PROJECT_DIR$/zaoshu/zaoshu_test.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/pysdk.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Python.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,8 +31,8 @@
       <file leaf-file-name="demo.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/demo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="98" column="103" lean-forward="false" selection-start-line="98" selection-start-column="103" selection-end-line="98" selection-end-column="103" />
+            <state relative-caret-position="384">
+              <caret line="97" column="85" lean-forward="true" selection-start-line="97" selection-start-column="85" selection-end-line="97" selection-end-column="85" />
               <folding>
                 <element signature="e#59#81#0" expanded="true" />
               </folding>
@@ -158,35 +149,6 @@
             <path>
               <item name="pysdk" type="b2602c69:ProjectViewProjectNode" />
               <item name="pysdk" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pysdk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="pysdk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6.1 (~/anaconda/bin/python) &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="pysdk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6.1 (~/anaconda/bin/python) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pysdk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6.1 (~/anaconda/bin/python) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="conda" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pysdk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6.1 (~/anaconda/bin/python) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="Cython" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -317,7 +279,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Python.gitignore">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1393">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -389,8 +351,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/demo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="98" column="103" lean-forward="false" selection-start-line="98" selection-start-column="103" selection-end-line="98" selection-end-column="103" />
+        <state relative-caret-position="384">
+          <caret line="97" column="85" lean-forward="true" selection-start-line="97" selection-start-column="85" selection-end-line="97" selection-end-column="85" />
           <folding>
             <element signature="e#59#81#0" expanded="true" />
           </folding>
