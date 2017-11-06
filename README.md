@@ -1,4 +1,7 @@
 # pysdk 造数Python版本SDK
+
+[![CircleCI](https://circleci.com/gh/BuleAnt/pysdk.svg?style=svg)](https://circleci.com/gh/BuleAnt/pysdk)
+
 ## 简介
  zaoshu 是对造数openAPI接口的一层封装实现，使用户更专注于功能，而不必关注底层实现，这些SDK帮你完成。
 ## pip 安装造数模块
@@ -8,7 +11,7 @@ pip install zaoshu
 
 ## pip 安装完成后引入ZaoshuSdk，即可使用
 ```
-from zaoshu.zaoshu import ZaoshuSdk
+from zaoshu import ZaoshuSdk
 
 # 测试代码 部分
 if __name__ == '__main__':

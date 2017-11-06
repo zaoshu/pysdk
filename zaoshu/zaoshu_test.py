@@ -7,16 +7,23 @@
 import unittest
 
 import requests
-from zaoshu import Instance
-from zaoshu import User
-from zaoshu import ZaoshuRequests
-from zaoshu import ZaoshuSdk
+from .zaoshu import Instance
+from .zaoshu import User
+from .zaoshu import ZaoshuRequests
+from .zaoshu import ZaoshuSdk
 from io import BytesIO
+import os
 
-API_KEY = '你自己的api_key'
-API_SECRET = '你自己的api_secret'
-INSTANCE_ID = '你的实例id'
-TASK_ID = '你的实例id下的一个任务id'
+
+# API_KEY = os.environ.get('API_KEY')
+# API_SECRET = os.environ.get('API_SECRET')
+# INSTANCE_ID = os.environ.get('INSTANCE_ID')
+# TASK_ID = os.environ.get('TASK_ID')
+
+API_KEY = 'ca3a56bdb5594c2b9e6d3f87f3d35baf'
+API_SECRET = '80518755f8d5d91f730a9332e2941023e41e29a856e6285bf51901af2f50f2b0'
+INSTANCE_ID = '94ca376d7dae458cae38cc8f0fde5bbc'
+TASK_ID = 'cf66c145f9364d3192499a2439681461'
 
 class TestZaoshuRequests(unittest.TestCase):
     """
@@ -108,11 +115,10 @@ class TestInstance(unittest.TestCase):
     def test_1_list(self):
         """测试获取用户的爬虫实例列表"""
         instance_list_response = self.instance.list()
-
         self.assertEqual(instance_list_response.status_code, 200)
         self.instance_id = instance_list_response.json()['data'][0]['id']
 
-    def                     test_2_item(self):
+    def test_2_item(self):
         """测试获取单个爬虫实例实例"""
         self.assertNotEqual(self.instance_id, '')
         instance_item_response = self.instance.item(self.instance_id)
@@ -150,7 +156,7 @@ class TestInstance(unittest.TestCase):
         instance_download_path = self.instance.download_run_data(self.instance_id,
                                                                  self.task_id,
                                                                  file_type='json',
-                                                                 save_file=True)
+                                                                 save_file='test1',save_path="/date")
         instance_download_count = self.instance.download_run_data(self.instance_id,
                                                                  self.task_id,
                                                                  file_type='json')

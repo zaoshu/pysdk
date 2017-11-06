@@ -9,7 +9,11 @@ jobs:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
       - image: circleci/python:3.6.1
-
+        environment:
+          API_KEY=ca3a56bdb5594c2b9e6d3f87f3d35baf
+          API_SECRET=80518755f8d5d91f730a9332e2941023e41e29a856e6285bf51901af2f50f2b0
+          INSTANCE_ID = 94ca376d7dae458cae38cc8f0fde5bbc
+          TASK_ID = cf66c145f9364d3192499a2439681461
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -44,6 +48,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
+            cd zaoshu
             python zaoshu_test.py test
 
       - store_artifacts:
