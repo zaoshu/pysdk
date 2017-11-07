@@ -11,7 +11,7 @@ pip install zaoshu
 
 ## pip 安装完成后引入ZaoshuSdk，即可使用
 ```
-from zaoshu.zaoshu import ZaoshuSdk
+from zaoshu import ZaoshuSdk
 
 # 测试代码 部分
 if __name__ == '__main__':
@@ -176,7 +176,7 @@ Instance.download_run_data(self, instance_id, task_id, file_type='csv', save_fil
 :param task_id: 任务ID
 :param file_type: 文件类型
 :param save_file: 是否保持文件
-:return:保存文件的路径/BytesIO对象
+:return:保存文件的路径/保存文件内容的元组
 """
    ```
    

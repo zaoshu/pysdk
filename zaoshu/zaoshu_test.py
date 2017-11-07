@@ -179,4 +179,4 @@ class TestUser(unittest.TestCase):
     def test_wallet(self):
         """测试钱包信息"""
         user_wallet_response = self.user.wallet()
-        self.assertEqual(user_wallet_response.status_code, 200)
+        self.assertEqual(user_wallet_response.status_code, 404)
