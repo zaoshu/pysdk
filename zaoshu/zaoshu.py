@@ -233,7 +233,7 @@ class Instance(object):
         #判断是否保存文件
         if save_file and save_path:
 
-            default_dir_path = save_path+'/datafile'
+            default_dir_path = '～'+save_path+'/datafile'
             # 获取文件名 和 后缀
             default_file_name = response.headers['content-disposition']
             default_file_name = '/'+str(default_file_name.replace("attachment; filename*=UTF-8''",
@@ -241,6 +241,7 @@ class Instance(object):
             suffix = '.'+default_file_name.split('.')[-1]
             default_file_name = default_file_name.replace(suffix, '')
 
+            # 这里需要对权限进行配置，暂后做
             # 判断路径状态
             if not os.path.isdir(default_dir_path):
                 os.makedirs(default_dir_path)

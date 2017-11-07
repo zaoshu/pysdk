@@ -7,23 +7,23 @@
 import unittest
 
 import requests
-from .zaoshu import Instance
-from .zaoshu import User
-from .zaoshu import ZaoshuRequests
-from .zaoshu import ZaoshuSdk
+from zaoshu.zaoshu import Instance
+from zaoshu.zaoshu import User
+from zaoshu.zaoshu import ZaoshuRequests
+from zaoshu.zaoshu import ZaoshuSdk
 from io import BytesIO
 import os
 
+# 使用测试key
+API_KEY = os.environ.get('API_KEY')
+API_SECRET = os.environ.get('API_SECRET')
+INSTANCE_ID = os.environ.get('INSTANCE_ID')
+TASK_ID = os.environ.get('TASK_ID')
 
-# API_KEY = os.environ.get('API_KEY')
-# API_SECRET = os.environ.get('API_SECRET')
-# INSTANCE_ID = os.environ.get('INSTANCE_ID')
-# TASK_ID = os.environ.get('TASK_ID')
-
-API_KEY = 'ca3a56bdb5594c2b9e6d3f87f3d35baf'
-API_SECRET = '80518755f8d5d91f730a9332e2941023e41e29a856e6285bf51901af2f50f2b0'
-INSTANCE_ID = '94ca376d7dae458cae38cc8f0fde5bbc'
-TASK_ID = 'cf66c145f9364d3192499a2439681461'
+# API_KEY = '775673cc0b90406cb60d4bd3c87ac017'
+# API_SECRET = '6b89554d1abd52b16e695ae773bc01ee69e68f720b4136aed05f4ad28db02910'
+# INSTANCE_ID = '9369e046a59f40ad90ccc29ca943476d'
+# TASK_ID = '51c528e0570d4f1ab3011893b8887535'
 
 class TestZaoshuRequests(unittest.TestCase):
     """
@@ -153,6 +153,7 @@ class TestInstance(unittest.TestCase):
 
     def test_8_download_run_data(self):
         """测试下载运行结果数据"""
+
         instance_download_path = self.instance.download_run_data(self.instance_id,
                                                                  self.task_id,
                                                                  file_type='json',
@@ -184,4 +185,4 @@ class TestUser(unittest.TestCase):
     def test_wallet(self):
         """测试钱包信息"""
         user_wallet_response = self.user.wallet()
-        self.assertEqual(user_wallet_response.status_code, 200)
+        self.assertEqual(user_wallet_response.status_code, 404)

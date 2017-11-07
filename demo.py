@@ -7,7 +7,6 @@ from time import sleep
 import os
 from zaoshu import ZaoshuSdk
 
-
 def print_resopnse_info(response, title=''):
     """
     输出响应信息
