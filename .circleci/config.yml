@@ -10,10 +10,11 @@ jobs:
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
       - image: circleci/python:3.6.1
         environment:
-          API_KEY=ca3a56bdb5594c2b9e6d3f87f3d35baf
-          API_SECRET=80518755f8d5d91f730a9332e2941023e41e29a856e6285bf51901af2f50f2b0
-          INSTANCE_ID=7139aa25d85141829e4faf28ea551226
-          TASK_ID=c484f8dc156a40d4bb8020c8e038ee54
+          API_KEY=775673cc0b90406cb60d4bd3c87ac017
+          API_SECRET=6b89554d1abd52b16e695ae773bc01ee69e68f720b4136aed05f4ad28db02910
+          INSTANCE_ID=9369e046a59f40ad90ccc29ca943476d
+          TASK_ID=51c528e0570d4f1ab3011893b8887535
+
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
