@@ -4,8 +4,9 @@
 造数SKD 使用dome
 """
 from time import sleep
-import os
-from zaoshu import ZaoshuSdk
+
+from zaoshu.zaoshu import ZaoshuSdk
+
 
 def print_resopnse_info(response, title=''):
     """
@@ -28,12 +29,10 @@ if __name__ == '__main__':
     ZAOSHU_URL = 'https://openapi.zaoshu.io/v2'
 
     # api_key = '你的api_key'
-    #API_KEY = '你的api_key'
-    API_KEY = 'ca3a56bdb5594c2b9e6d3f87f3d35baf'
+    API_KEY = '你的api_key'
 
     # api_secret = '你的api_secret'
-    #API_SERVER = '你的api_secret'
-    API_SERVER = '80518755f8d5d91f730a9332e2941023e41e29a856e6285bf51901af2f50f2b0'
+    API_SERVER = '你的api_secret'
 
     sdk = ZaoshuSdk(API_KEY, API_SERVER, base_url=ZAOSHU_URL)
 
@@ -91,12 +90,11 @@ if __name__ == '__main__':
             instance_task_response = sdk.instance.task(instance_id, task_id)
             print_resopnse_info(instance_task_response, '获取任务详情')
 
-            save_path = os.getcwd()
             # 实例任务数据下载
 
             instance_download_path = sdk.instance.download_run_data(instance_id, task_id,
                                                                     file_type='json',
-                                                                    save_file=True, save_path=save_path)
+                                                                    save_file=True)
             print('====[实例任务数据下载]========================================')
             print('下载路径：'+instance_download_path)
 
