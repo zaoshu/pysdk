@@ -93,6 +93,7 @@ if __name__ == '__main__':
 
             save_path = os.getcwd()
             # 实例任务数据下载
+
             instance_download_path = sdk.instance.download_run_data(instance_id, task_id,
                                                                     file_type='json',
                                                                     save_file=True, save_path=save_path)

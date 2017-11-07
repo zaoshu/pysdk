@@ -12,6 +12,7 @@ import os
 import json
 from io import BytesIO
 from time import gmtime, strftime
+import zipfile
 
 __version__ = "0.1.9"
 
@@ -228,17 +229,17 @@ class Instance(object):
         # 发生请求，获取下载文件
         response = self._request.get(url, params=params)
 
+        default_file_name = response.headers['content-disposition']
+        default_file_name = '/' + str(default_file_name.replace("attachment; filename*=UTF-8''",
+                                                                ''))
+        suffix = '.' + default_file_name.split('.')[-1]
+        default_file_name = default_file_name.replace(suffix, '')
 
         #判断是否保存文件
         if save_file and save_path:
 
-            default_dir_path = '～'+save_path+'/datafile'
+            default_dir_path = '.'+save_path+'/datafile'
             # 获取文件名 和 后缀
-            default_file_name = response.headers['content-disposition']
-            default_file_name = '/'+str(default_file_name.replace("attachment; filename*=UTF-8''",
-                                                                  ''))
-            suffix = '.'+default_file_name.split('.')[-1]
-            default_file_name = default_file_name.replace(suffix, '')
 
             # 这里需要对权限进行配置，暂后做
             # 判断路径状态
@@ -254,7 +255,19 @@ class Instance(object):
         elif save_file:
             raise Exception("save_path Error")
         else:
-            return BytesIO(response.content)
+            download_file = BytesIO(response.content)
+            if suffix in '.zip':
+                surface = ''
+                depth = ''
+                decom_bytes = zipfile.ZipFile(file=download_file)
+                # 获取文件名
+                if len(decom_bytes.namelist()) == 2:
+                    surface = decom_bytes.read(decom_bytes.namelist()[0])
+                    depth = decom_bytes.read(decom_bytes.namelist()[-1])
+
+                return surface.decode(), depth.decode()
+            else:
+                return response.content.decode(),
 
 
     def run(self, instance_id, body=None):

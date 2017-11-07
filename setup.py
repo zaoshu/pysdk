@@ -6,7 +6,7 @@ import sys
 
 setup(
     name="zaoshu",
-    version="0.1.1",
+    version="0.1.9",
     author="Kevin Cheng",
     author_email="chengwei@zaoshu.io",
     description="zaoshu包实现里对造数openapi功能的封装，使开发人员专注于功能的实现，提高开发效率。 ",
@@ -18,7 +18,7 @@ setup(
         "requests",
     ],
     classifiers=[
-        "Development Status :: 4 - Beta"
+        "Development Status :: 4 - Beta",
         "Environment :: Web Environment",
         "Intended Audience :: Developers",
         "License :: Free For Home Use",
