@@ -13,9 +13,6 @@ import json
 from io import BytesIO
 from time import gmtime, strftime
 
-__version__ = "0.1.9"
-
-
 import requests
 
 class ZaoshuRequests(object):
@@ -213,7 +210,7 @@ class Instance(object):
         url = self.task_url.replace(':instance_id', instance_id).replace(':task_id', task_id)
         return self._request.get(url)
 
-    def download_run_data(self, instance_id, task_id, file_type='csv', save_file=False, save_path = None):
+    def download_run_data(self, instance_id, task_id, file_type='csv', save_file=False):
         """
         下载运行结果
         :param instance_id: 实例ID
@@ -230,9 +227,9 @@ class Instance(object):
 
 
         #判断是否保存文件
-        if save_file and save_path:
+        if save_file:
 
-            default_dir_path = '～'+save_path+'/datafile'
+            default_dir_path = 'datafile'
             # 获取文件名 和 后缀
             default_file_name = response.headers['content-disposition']
             default_file_name = '/'+str(default_file_name.replace("attachment; filename*=UTF-8''",
@@ -240,7 +237,6 @@ class Instance(object):
             suffix = '.'+default_file_name.split('.')[-1]
             default_file_name = default_file_name.replace(suffix, '')
 
-            # 这里需要对权限进行配置，暂后做
             # 判断路径状态
             if not os.path.isdir(default_dir_path):
                 os.makedirs(default_dir_path)
@@ -251,8 +247,7 @@ class Instance(object):
             with open(save_file_path, 'wb') as file:
                 file.write(response.content)
             return os.path.abspath(save_file_path)
-        elif save_file:
-            raise Exception("save_path Error")
+
         else:
             return BytesIO(response.content)
 
