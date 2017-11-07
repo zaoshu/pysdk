@@ -11,7 +11,7 @@ pip install zaoshu
 
 ## pip 安装完成后引入ZaoshuSdk，即可使用
 ```
-from zaoshu.zaoshu import ZaoshuSdk
+from zaoshu import ZaoshuSdk
 
 # 测试代码 部分
 if __name__ == '__main__':
