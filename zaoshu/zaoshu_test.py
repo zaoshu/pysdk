@@ -7,10 +7,10 @@
 import unittest
 
 import requests
-from zaoshu.zaoshu import Instance
-from zaoshu.zaoshu import User
-from zaoshu.zaoshu import ZaoshuRequests
-from zaoshu.zaoshu import ZaoshuSdk
+from zaoshu import Instance
+from zaoshu import User
+from zaoshu import ZaoshuRequests
+from zaoshu import ZaoshuSdk
 from io import BytesIO
 import os
 

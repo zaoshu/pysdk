@@ -116,7 +116,6 @@ class ZaoshuRequests(object):
                           hashlib.sha256).digest()
         return base64.b64encode(digest).decode("utf-8")
 
-
 class ZaoshuSdk(object):
     """
     造数SDK 这里整合里造数各功能类
