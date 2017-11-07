@@ -30,11 +30,9 @@ if __name__ == '__main__':
 
     # api_key = '你的api_key'
     API_KEY = '你的api_key'
-    API_KEY = 'ca3a56bdb5594c2b9e6d3f87f3d35baf'
 
     # api_secret = '你的api_secret'
     API_SERVER = '你的api_secret'
-    API_SERVER = '80518755f8d5d91f730a9332e2941023e41e29a856e6285bf51901af2f50f2b0'
 
     sdk = ZaoshuSdk(API_KEY, API_SERVER, base_url=ZAOSHU_URL)
 
